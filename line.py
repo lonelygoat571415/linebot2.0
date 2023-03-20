@@ -1,3 +1,5 @@
+import os
+import json
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
@@ -138,43 +140,57 @@ def handle_message(event):
         try:
             message = [
                 ImageSendMessage(
-                    original_content_url="https://i.imgur.com/TyApYzf.jpg",
-                    preview_image_url="https://i.imgur.com/TyApYzf.jpg"
+                    original_content_url="https://i.imgur.com/p7jdfM1.jpg",
+                    preview_image_url="https://i.imgur.com/p7jdfM1.jpg"
                 ),
                 TextSendMessage(
                     text='選擇掛號科別',
                     quick_reply=QuickReply(
                         items=[
                             QuickReplyButton(
-                                action=MessageAction(label="內科門診", text="內科門診")
+                                action=MessageAction(label="內科", text="內科")
                             ),
                             QuickReplyButton(
-                                action=MessageAction(label="外科門診", text="外科門診")
-                            ),
-                            QuickReplyButton(
-                                action=MessageAction(
-                                    label="獨立部科1", text="獨立部科1")
+                                action=MessageAction(label="外科", text="外科")
                             ),
                             QuickReplyButton(
                                 action=MessageAction(
-                                    label="獨立部科2", text="獨立部科2")
+                                    label="其他專科", text="其他專科")
                             ),
                             QuickReplyButton(
                                 action=MessageAction(
-                                    label="獨立部科3", text="獨立部科3")
+                                    label="特色中心", text="特色中心")
+                            ),
+                            QuickReplyButton(
+                                action=MessageAction(
+                                    label="新冠肺炎專區", text="新冠肺炎專區")
                             ),
 
                         ]
                     )
                 ),
-
             ]
             linebot_api.reply_message(event.reply_token, message)
 
         except:
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
-
+    elif mtext == '內科':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/a專題/下學期/coding/medical department.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='hello', contents=data)
+        )
+    # file_path = os.path.abspath('/a專題/下學期/coding/test.json')
+    # with open(file_path, 'r') as f:
+    #     data = json.load(f)
+    # linebot_api.reply_message(
+    #     event.reply_token,
+    #     FlexSendMessage(alt_text='hello', contents=data)
+    # )
 # 3 看診進度
     elif mtext == '看診進度':
         try:
@@ -1534,6 +1550,7 @@ def handle_message(event):
         except:
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
+
     elif mtext == '接駁車班次':
         try:
             message = ImageSendMessage(
