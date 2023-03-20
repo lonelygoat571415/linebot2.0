@@ -1,0 +1,257 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:19",
+        "aspectMode": "cover",
+        "url": "https://i.imgur.com/vycuXNv.pnghttps://i.imgur.com/vycuXNv.png"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "其他專科（一）",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "請選擇以下要掛號之科別",
+                "wrap": true,
+                "weight": "regular",
+                "size": "lg",
+                "flex": 0,
+                "color": "#555555"
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "影像醫學科門診",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=RA%20%20#cond"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "流感疫苗-家醫",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=FUFM#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "兒童醫學部",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=PED%20#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "放射腫瘤科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=CT%20%20#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "家庭醫學科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=FM%20%20#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "職業醫學科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=FMOC#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "疼痛/麻醉科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=ANES#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "口腔顎面科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=OS%20%20#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "核子醫學科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=NM%20%20#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "耳鼻喉科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=ENT%20#cond&gsc.tab=0"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:19",
+        "aspectMode": "cover",
+        "url": "https://i.imgur.com/KxVtvMg.png"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "其他專科（二）",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "請選擇以下要掛號之科別",
+                "wrap": true,
+                "weight": "regular",
+                "size": "lg",
+                "flex": 0,
+                "color": "#555555"
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "兒童牙科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=PEDO#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "婦產部",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=OBGY#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "泌尿科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=GU%20%20#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "皮膚科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=DERM#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "精神科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=PSY%20#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "神經科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=NEUR#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "復健科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=REHA#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "骨科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=ORTH#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "眼科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=OPH%20#cond&gsc.tab=0"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "牙科",
+              "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=DENT#cond&gsc.tab=0"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

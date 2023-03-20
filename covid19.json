@@ -1,0 +1,75 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "size": "full",
+          "aspectRatio": "20:19",
+          "aspectMode": "cover",
+          "url": "https://i.imgur.com/z9Uqvv9.png"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "新冠肺炎專區",
+              "wrap": true,
+              "weight": "bold",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "請選擇以下要掛號之科別",
+                  "wrap": true,
+                  "weight": "regular",
+                  "size": "lg",
+                  "flex": 0,
+                  "color": "#555555"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "新冠肺炎康復後整合門診",
+                "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=COCC#cond&gsc.tab=0"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "COVID-19疫苗注射-FM",
+                "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=COVF#cond&gsc.tab=0"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "視訊診療門診",
+                "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=VITX#cond&gsc.tab=0"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }

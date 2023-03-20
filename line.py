@@ -175,15 +175,55 @@ def handle_message(event):
         except:
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
+            
     elif mtext == '內科':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/medical department.json')
+            '.'), '/Users/icetong/Documents/輔大/1102/專題/code/medical department.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
             event.reply_token,
             FlexSendMessage(alt_text='hello', contents=data)
         )
+    elif mtext == '外科':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/Users/icetong/Documents/輔大/1102/專題/code/surgical department.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='hello', contents=data)
+        )
+
+    elif mtext == '其他專科':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/Users/icetong/Documents/輔大/1102/專題/code/professional subjects.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='hello', contents=data)
+        )    
+
+    elif mtext == '特色中心':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/Users/icetong/Documents/輔大/1102/專題/code/feature center.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='hello', contents=data)
+        )  
+
+    elif mtext == '新冠肺炎專區':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/Users/icetong/Documents/輔大/1102/專題/code/covid19.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='hello', contents=data)
+        )          
     # file_path = os.path.abspath('/a專題/下學期/coding/test.json')
     # with open(file_path, 'r') as f:
     #     data = json.load(f)
@@ -1553,37 +1593,10 @@ def handle_message(event):
 
     elif mtext == '接駁車班次':
         try:
-            message = TextSendMessage(
-                text='選擇班次路線)',
-                quick_reply=QuickReply(
-                    items=[
-                        QuickReplyButton(
-                            action=MessageAction(label="北新莊線", text="北新莊線")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="板橋線", text="板橋線")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="輔大捷運線", text="輔大捷運線")
-                        ),
-
-                    ]
-                )
+            message = ImageSendMessage(
+                original_content_url="https://i.imgur.com/2H75gyn.jpg",
+                preview_image_url="https://i.imgur.com/2H75gyn.jpg"
             )
-            linebot_api.reply_message(event.reply_token, message)
-
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-    elif mtext == '北新莊線':
-        try:
-            message = [
-                TextSendMessage(text="下圖是北新莊線時刻表"),
-                ImageSendMessage(
-                    original_content_url="https://i.imgur.com/lhSWFqJ.png",
-                    preview_image_url="https://i.imgur.com/lhSWFqJ.png"
-                )
-            ]
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
