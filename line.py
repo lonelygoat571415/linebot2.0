@@ -140,8 +140,8 @@ def handle_message(event):
         try:
             message = [
                 ImageSendMessage(
-                    original_content_url="https://i.imgur.com/p7jdfM1.jpg",
-                    preview_image_url="https://i.imgur.com/p7jdfM1.jpg"
+                    original_content_url="https://i.imgur.com/2476coB.jpg",
+                    preview_image_url="https://i.imgur.com/2476coB.jpg"
                 ),
                 TextSendMessage(
                     text='選擇掛號科別',
@@ -1553,10 +1553,37 @@ def handle_message(event):
 
     elif mtext == '接駁車班次':
         try:
-            message = ImageSendMessage(
-                original_content_url="https://i.imgur.com/2H75gyn.jpg",
-                preview_image_url="https://i.imgur.com/2H75gyn.jpg"
+            message = TextSendMessage(
+                text='選擇班次路線)',
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=MessageAction(label="北新莊線", text="北新莊線")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="板橋線", text="板橋線")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="輔大捷運線", text="輔大捷運線")
+                        ),
+
+                    ]
+                )
             )
+            linebot_api.reply_message(event.reply_token, message)
+
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+    elif mtext == '北新莊線':
+        try:
+            message = [
+                TextSendMessage(text="下圖是北新莊線時刻表"),
+                ImageSendMessage(
+                    original_content_url="https://i.imgur.com/lhSWFqJ.png",
+                    preview_image_url="https://i.imgur.com/lhSWFqJ.png"
+                )
+            ]
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
