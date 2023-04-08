@@ -1,0 +1,44 @@
+{
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "請選擇您要搜尋的項目",
+          "weight": "bold",
+          "size": "lg"
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "button",
+          "style": "link",
+          "height": "sm",
+          "action": {
+            "type": "message",
+            "label": "探病時間",
+            "text": "探病時間"
+          },
+          "margin": "xs"
+        },
+        {
+          "type": "button",
+          "style": "link",
+          "height": "sm",
+          "action": {
+            "type": "uri",
+            "label": "探病規定",
+            "uri": "https://www.hospital.fju.edu.tw/Guide?FuncID=LRSEE#gsc.tab=0"
+          }
+        }
+      ],
+      "flex": 0
+    }
+  }
