@@ -1,0 +1,84 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "特色中心",
+              "wrap": true,
+              "weight": "bold",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "請選擇以下要查詢的科別位置",
+                  "wrap": true,
+                  "weight": "regular",
+                  "size": "lg",
+                  "flex": 0,
+                  "color": "#555555"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "智慧科學體重管理中心",
+                "text": "智慧科學體重管理中心"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "聖路加美容中心",
+                "text": "聖路加美容中心"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "腦血管介入治療",
+                "text": "腦血管介入治療"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "運動醫學中心",
+                "text": "運動醫學中心"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "營養諮詢",
+                "text": "營養諮詢"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }

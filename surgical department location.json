@@ -1,0 +1,116 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "外科",
+              "wrap": true,
+              "weight": "bold",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "請選擇以下要查詢的科別位置",
+                  "wrap": true,
+                  "weight": "regular",
+                  "size": "lg",
+                  "flex": 0,
+                  "color": "#555555"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "外傷科兼小兒外科",
+                "text": "外傷科兼小兒外科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "大腸直腸外科",
+                "text": "大腸直腸外科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "心臟血管外科",
+                "text": "心臟血管外科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "神經外科",
+                "text": "神經外科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "乳房外科",
+                "text": "乳房外科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "一般外科",
+                "text": "一般外科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "整形外科",
+                "text": "整形外科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "胸腔外科",
+                "text": "胸腔外科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "外科部",
+                "text": "外科部"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }

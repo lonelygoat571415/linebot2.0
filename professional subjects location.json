@@ -1,0 +1,243 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "其他專科（一）",
+              "wrap": true,
+              "weight": "bold",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "請選擇以下要查詢的科別位置",
+                  "wrap": true,
+                  "weight": "regular",
+                  "size": "lg",
+                  "flex": 0,
+                  "color": "#555555"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "影像醫學科門診",
+                "text": "影像醫學科門診"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "流感疫苗-家醫",
+                "text": "流感疫苗-家醫"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "兒童醫學部",
+                "text": "兒童醫學部"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "放射腫瘤科",
+                "text": "放射腫瘤科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "家庭醫學科",
+                "text": "家庭醫學科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "職業醫學科",
+                "text": "職業醫學科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "疼痛/麻醉科",
+                "text": "疼痛/麻醉科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "口腔顎面科",
+                "text": "口腔顎面科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "核子醫學科",
+                "text": "核子醫學科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "耳鼻喉科",
+                "text": "耳鼻喉科"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "其他專科（二）",
+              "wrap": true,
+              "weight": "bold",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "請選擇以下要查詢的科別位置",
+                  "wrap": true,
+                  "weight": "regular",
+                  "size": "lg",
+                  "flex": 0,
+                  "color": "#555555"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "兒童牙科",
+                "text": "兒童牙科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "婦產部",
+                "text": "婦產部"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "泌尿科",
+                "text": "泌尿科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "皮膚科",
+                "text": "皮膚科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "精神科",
+                "text": "精神科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "神經科",
+                "text": "神經科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "復健科",
+                "text": "復健科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "骨科",
+                "text": "骨科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "眼科",
+                "text": "眼科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "牙科",
+                "text": "牙科"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }

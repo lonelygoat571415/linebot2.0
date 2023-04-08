@@ -1,0 +1,124 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "內科",
+              "wrap": true,
+              "weight": "bold",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "請選擇以下要查詢的科別位置",
+                  "wrap": true,
+                  "weight": "regular",
+                  "size": "lg",
+                  "flex": 0,
+                  "color": "#555555"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "胃腸肝膽科",
+                "text": "胃腸肝膽科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "新陳代謝科",
+                "text": "新陳代謝科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "血液腫瘤科",
+                "text": "血液腫瘤科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "風濕免疫科",
+                "text": "風濕免疫科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "心臟內科",
+                "text": "心臟內科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "胸腔內科",
+                "text": "胸腔內科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "腎臟內科",
+                "text": "腎臟內科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "一般內科",
+                "text": "一般內科"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "內科部",
+                "text": "內科部"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "感染科",
+                "text": "感染科"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }

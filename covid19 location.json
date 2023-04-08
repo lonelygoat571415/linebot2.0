@@ -1,0 +1,60 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "新冠肺炎專區",
+              "wrap": true,
+              "weight": "bold",
+              "size": "xl"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "請選擇以下要掛號之科別",
+                  "wrap": true,
+                  "weight": "regular",
+                  "size": "lg",
+                  "flex": 0,
+                  "color": "#555555"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "新冠肺炎康復後整合門診",
+                "text": "新冠肺炎康復後整合門診"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "COVID-19疫苗注射-FM",
+                "text": "COVID-19疫苗注射-FM"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }

@@ -293,41 +293,23 @@ def handle_message(event):
                     quick_reply=QuickReply(
                         items=[
                             QuickReplyButton(
-                                action=MessageAction(label="內科1", text="內科1")
+                                action=MessageAction(label="內科", text="內科.")
                             ),
                             QuickReplyButton(
-                                action=MessageAction(label="內科2", text="內科2")
+                                action=MessageAction(label="外科", text="外科.")
                             ),
                             QuickReplyButton(
-                                action=MessageAction(label="內科3", text="內科3")
+                                action=MessageAction(
+                                    label="其他專科", text="其他專科.")
                             ),
                             QuickReplyButton(
-                                action=MessageAction(label="外科1", text="外科1")
+                                action=MessageAction(
+                                    label="特色中心", text="特色中心.")
                             ),
                             QuickReplyButton(
-                                action=MessageAction(label="外科2", text="外科2")
-                            ),
-                            QuickReplyButton(
-                                action=MessageAction(label="外科3", text="外科3")
-                            ),
-                            QuickReplyButton(
-                                action=MessageAction(label="獨立1", text="獨立1")
-                            ),
-                            QuickReplyButton(
-                                action=MessageAction(label="獨立2", text="獨立2")
-                            ),
-                            QuickReplyButton(
-                                action=MessageAction(label="獨立3", text="獨立3")
-                            ),
-                            QuickReplyButton(
-                                action=MessageAction(label="獨立4", text="獨立4")
-                            ),
-                            QuickReplyButton(
-                                action=MessageAction(label="獨立5", text="獨立5")
-                            ),
-                            QuickReplyButton(
-                                action=MessageAction(label="獨立6", text="獨立6")
-                            ),
+                                action=MessageAction(
+                                    label="新冠肺炎專區", text="新冠肺炎專區.")
+                            )
                         ]
                     )
                 )]
@@ -337,38 +319,54 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '內科1':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='內科1',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='內科部',
-                            text='內科部'
-                        ),
-                        MessageTemplateAction(
-                            label='心臟內科',
-                            text='心臟內科',
-                        ),
-                        MessageTemplateAction(
-                            label='胃腸肝膽內科',
-                            text='胃腸肝膽內科',
-                        ),
-                        MessageTemplateAction(
-                            label='新陳代謝科',
-                            text='新陳代謝科',
-                        ),
-                    ]
-                ),
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
+    elif mtext == '內科.':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/a專題/下學期/coding/internal medicine location.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='內科 位置', contents=data)
+        )
+
+    elif mtext == '外科.':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/a專題/下學期/coding/surgical department location.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='外科 位置', contents=data)
+        )
+
+    elif mtext == '其他專科.':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/a專題/下學期/coding/professional subjects location.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='其他專科 位置', contents=data)
+        )
+
+    elif mtext == '特色中心.':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/a專題/下學期/coding/feature center location.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='特色中心 位置', contents=data)
+        )
+    elif mtext == '新冠肺炎專區.':
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/a專題/下學期/coding/covid19 location.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='新冠肺炎專區 位置', contents=data)
+        )
 
     elif mtext == '內科部':
         try:
@@ -421,41 +419,6 @@ def handle_message(event):
                     preview_image_url="https://i.imgur.com/QuEUQj0.jpg"
                 )
             ]
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
-    elif mtext == '內科2':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='內科2',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='胸腔內科',
-                            text='胸腔內科',
-                        ),
-                        MessageTemplateAction(
-                            label='腎臟內科',
-                            text='腎臟內科',
-                        ),
-                        MessageTemplateAction(
-                            label='一般內科',
-                            text='一般內科',
-                        ),
-                        MessageTemplateAction(
-                            label='血液腫瘤科',
-                            text='血液腫瘤科'
-                        ),
-                    ]
-                ),
-
-
-            )
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -517,31 +480,6 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '內科3':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='內科3',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='風濕免疫科',
-                            text='風濕免疫科',
-                        ),
-                        MessageTemplateAction(
-                            label='感染科',
-                            text='感染科',
-                        ),
-                    ]
-                ),
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
     elif mtext == '風濕免疫科':
         try:
             message = [
@@ -570,39 +508,6 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '外科1':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='外科1',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='外科部',
-                            text='外科部',
-                        ),
-                        MessageTemplateAction(
-                            label='神經外科',
-                            text='神經外科',
-                        ),
-                        MessageTemplateAction(
-                            label='大腸直腸外科',
-                            text='大腸直腸外科',
-                        ),
-                        MessageTemplateAction(
-                            label='乳房外科',
-                            text='乳房外科',
-                        ),
-                    ]
-                )
-
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
     elif mtext == '外科部':
         try:
             message = [
@@ -663,39 +568,6 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '外科2':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='外科2',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='泌尿科',
-                            text='泌尿科',
-                        ),
-                        MessageTemplateAction(
-                            label='一般外科',
-                            text='一般外科',
-                        ),
-                        MessageTemplateAction(
-                            label='心臟血管外科',
-                            text='心臟血管外科',
-                        ),
-                        MessageTemplateAction(
-                            label='整形外科',
-                            text='整形外科',
-                        ),
-                    ]
-                )
-
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
     elif mtext == '泌尿科':
         try:
             message = [
@@ -753,28 +625,6 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '外科3':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='外科3',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='胸腔外科',
-                            text='胸腔外科',
-                        ),
-                    ]
-                )
-
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
     elif mtext == '胸腔外科':
         try:
             message = [
@@ -784,40 +634,6 @@ def handle_message(event):
                     preview_image_url="https://i.imgur.com/e1JmO8B.jpg"
                 )
             ]
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
-    elif mtext == '獨立1':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='獨立部門',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='兒童醫學科',
-                            text='兒童醫學科',
-                        ),
-                        MessageTemplateAction(
-                            label='婦產科',
-                            text='婦產科',
-                        ),
-                        MessageTemplateAction(
-                            label='智慧科學體重管理中心',
-                            text='智慧科學體重管理中心',
-                        ),
-                        MessageTemplateAction(
-                            label='運動醫學中心（復健）',
-                            text='運動醫學中心（復健）',
-                        ),
-                    ]
-                )
-
-            )
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -874,39 +690,6 @@ def handle_message(event):
                     preview_image_url="https://i.imgur.com/i33IMPL.jpg"
                 )
             ]
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
-    elif mtext == '獨立2':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='獨立部門2',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='骨科',
-                            text='骨科'
-                        ),
-                        MessageTemplateAction(
-                            label='口腔顎面科',
-                            text='口腔顎面科',
-                        ),
-                        MessageTemplateAction(
-                            label='兒童牙科',
-                            text='兒童牙科',
-                        ),
-                        MessageTemplateAction(
-                            label='神經科',
-                            text='神經科',
-                        ),
-                    ]
-                ),
-            )
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -971,35 +754,6 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '獨立3':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='獨立部門3',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='牙科',
-                            text='牙科'
-                        ),
-                        MessageTemplateAction(
-                            label='運動醫學中心（骨科）',
-                            text='運動醫學中心（骨科）',
-                        ),
-                        MessageTemplateAction(
-                            label='家庭醫學科',
-                            text='家庭醫學科',
-                        )
-                    ]
-                ),
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
     elif mtext == '牙科':
         try:
             message = [
@@ -1041,39 +795,6 @@ def handle_message(event):
                     preview_image_url="https://i.imgur.com/CDTRzCM.jpg"
                 )
             ]
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
-    elif mtext == '獨立4':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='獨立部門4',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='精神科',
-                            text='精神科'
-                        ),
-                        MessageTemplateAction(
-                            label='眼科',
-                            text='眼科',
-                        ),
-                        MessageTemplateAction(
-                            label='耳鼻喉科',
-                            text='耳鼻喉科',
-                        ),
-                        MessageTemplateAction(
-                            label='皮膚科',
-                            text='皮膚科',
-                        ),
-                    ]
-                ),
-            )
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -1135,39 +856,6 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '獨立5':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='獨立部門5',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='放射腫瘤科',
-                            text='放射腫瘤科'
-                        ),
-                        MessageTemplateAction(
-                            label='復健科',
-                            text='復健科',
-                        ),
-                        MessageTemplateAction(
-                            label='營養諮詢',
-                            text='營養諮詢',
-                        ),
-                        MessageTemplateAction(
-                            label='腦血管介入治療門診',
-                            text='腦血管介入治療門診',
-                        ),
-                    ]
-                ),
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
     elif mtext == '放射腫瘤科':
         try:
             message = [
@@ -1223,39 +911,6 @@ def handle_message(event):
                     preview_image_url="https://i.imgur.com/RwBzLT2.jpg"
                 )
             ]
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
-    elif mtext == '獨立6':
-        try:
-            message = TemplateSendMessage(
-                alt_text='門診位置',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='獨立部門6',
-                    text='請選擇科別:',
-                    actions=[
-                        MessageTemplateAction(
-                            label='疼痛麻醉科',
-                            text='疼痛麻醉科'
-                        ),
-                        MessageTemplateAction(
-                            label='職業醫學科',
-                            text='職業醫學科',
-                        ),
-                        MessageTemplateAction(
-                            label='影像醫學科',
-                            text='影像醫學科',
-                        ),
-                        MessageTemplateAction(
-                            label='新冠肺炎康復後整合門診',
-                            text='新冠肺炎康復後整合門診',
-                        ),
-                    ]
-                ),
-            )
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
