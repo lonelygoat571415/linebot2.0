@@ -285,8 +285,8 @@ def handle_message(event):
         try:
             message = [
                 ImageSendMessage(
-                    original_content_url="https://i.imgur.com/ishQVxb.jpg",
-                    preview_image_url="https://i.imgur.com/ishQVxb.jpg"
+                    original_content_url="https://i.imgur.com/nVq9uBC.png",
+                    preview_image_url="https://i.imgur.com/nVq9uBC.png"
                 ),
                 TextSendMessage(
                     text='選擇科別',
@@ -639,10 +639,10 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '兒童醫學科':
+    elif mtext == '兒童醫學部':
         try:
             message = [
-                TextSendMessage(text="兒童醫學科位於2樓243、244、247診間"),
+                TextSendMessage(text="兒童醫學部位於2樓243、244、247診間"),
                 ImageSendMessage(
                     original_content_url="https://i.imgur.com/NB2e1yT.jpg",
                     preview_image_url="https://i.imgur.com/NB2e1yT.jpg"
@@ -653,10 +653,10 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '婦產科':
+    elif mtext == '婦產部':
         try:
             message = [
-                TextSendMessage(text="婦產科位於3樓307~310診間"),
+                TextSendMessage(text="婦產部位於3樓307~310診間"),
                 ImageSendMessage(
                     original_content_url="https://i.imgur.com/ATK8eVF.jpg",
                     preview_image_url="https://i.imgur.com/ATK8eVF.jpg"
@@ -681,10 +681,10 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '運動醫學中心（復健）':
+    elif mtext == '運動醫學中心(復健)':
         try:
             message = [
-                TextSendMessage(text="運動醫學中心（復健）位於4樓401、402、405診間"),
+                TextSendMessage(text="運動醫學中心(復健)位於4樓401、402、405診間"),
                 ImageSendMessage(
                     original_content_url="https://i.imgur.com/i33IMPL.jpg",
                     preview_image_url="https://i.imgur.com/i33IMPL.jpg"
@@ -768,7 +768,7 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '運動醫學中心（骨科）':
+    elif mtext == '運動醫學中心(骨科)':
         try:
             message = [
                 TextSendMessage(text="運動醫學中心（骨科）位於4樓405診間"),
@@ -902,7 +902,7 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '腦血管介入治療門診':
+    elif mtext == '腦血管介入治療':
         try:
             message = [
                 TextSendMessage(text="腦血管介入治療門診位於2樓251診間"),
@@ -940,7 +940,7 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-    elif mtext == '影像醫學科':
+    elif mtext == '影像醫學科門診':
         try:
             message = [
                 TextSendMessage(text="影像醫學科位於2樓208診間"),
