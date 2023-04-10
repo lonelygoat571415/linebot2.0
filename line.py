@@ -1339,5 +1339,20 @@ def handle_message(event):
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
 
+{
+    "builds": [
+        {
+            "src": "api/index.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/index.py"
+        }
+    ]
+}
+
 if __name__ == '__main__':
     app.run()
