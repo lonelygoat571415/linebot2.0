@@ -4,8 +4,6 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
-
-{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
 linebot_api = LineBotApi(
     'T7SxI84IeUrDczb3GqWNiJ6uR9BYNqcYKDN4lXvysix1KKcGrvDj9WbzyE4dW8G6/oDPGkwlt81sX+eoMjGZFprmsr+Fc023Y5UvMa/MA5LJSuyhLK3doXLLqGda8PVFQNuerl9p6dMrRWaPOo9EmAdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('8934b15b8ceb5ce6236d72238f226ebf')
@@ -369,6 +367,77 @@ def handle_message(event):
             event.reply_token,
             FlexSendMessage(alt_text='新冠肺炎專區 位置', contents=data)
         )
+    elif mtext == '胃腸肝膽科':
+        try:
+            message = [
+                TextSendMessage(text="胃腸肝膽科位於2樓 215~217,256"),
+                ImageSendMessage(
+                    original_content_url="https://i.imgur.com/o7zGrMk.png",
+                    preview_image_url="https://i.imgur.com/o7zGrMk.png"
+                )
+            ]
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '外傷兼小兒外科':
+        try:
+            message = [
+                TextSendMessage(text="外傷兼小兒外科位於2樓 208,252"),
+                ImageSendMessage(
+                    original_content_url="https://i.imgur.com/o7zGrMk.png",
+                    preview_image_url="https://i.imgur.com/o7zGrMk.png"
+                )
+            ]
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '流感疫苗-家醫':
+        try:
+            message = [
+                TextSendMessage(text="流感疫苗-家醫目前無確定之位置")
+            ]
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '核子醫學科':
+        try:
+            message = [
+                TextSendMessage(text="核子醫學科目前無確定之位置")
+            ]
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '聖路加美容中心':
+        try:
+            message = [
+                TextSendMessage(text="聖路加美容中心位於15樓")
+            ]
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == 'COVID-19疫苗注射-FM':
+        try:
+            message = [
+                TextSendMessage(text="COVID-19疫苗注射-FM位於2樓 255"),
+                ImageSendMessage(
+                    original_content_url="https://i.imgur.com/o7zGrMk.png",
+                    preview_image_url="https://i.imgur.com/o7zGrMk.png"
+                )
+            ]
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
 
     elif mtext == '內科部':
         try:
@@ -1340,21 +1409,6 @@ def handle_message(event):
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
-
-{
-    "builds": [
-        {
-            "src": "api/index.py",
-            "use": "@vercel/python"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "api/index.py"
-        }
-    ]
-}
 
 if __name__ == '__main__':
     app.run()
