@@ -177,7 +177,7 @@ def handle_message(event):
                 event.reply_token, TextSendMessage(text='發生錯誤'))
     elif mtext == '內科':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/medical department.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/medical department.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -186,7 +186,7 @@ def handle_message(event):
         )
     elif mtext == '外科':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/surgical department.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/surgical department.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -196,7 +196,7 @@ def handle_message(event):
 
     elif mtext == '其他專科':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/professional subjects.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/professional subjects.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -206,7 +206,7 @@ def handle_message(event):
 
     elif mtext == '特色中心':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/feature center.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/feature center.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -216,7 +216,7 @@ def handle_message(event):
 
     elif mtext == '新冠肺炎專區':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/covid19.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/covid19.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -321,7 +321,7 @@ def handle_message(event):
 
     elif mtext == '內科.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/internal medicine location.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/internal medicine location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -331,7 +331,7 @@ def handle_message(event):
 
     elif mtext == '外科.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/surgical department location.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/surgical department location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -341,7 +341,7 @@ def handle_message(event):
 
     elif mtext == '其他專科.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/professional subjects location.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/professional subjects location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -351,7 +351,7 @@ def handle_message(event):
 
     elif mtext == '特色中心.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/feature center location.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/feature center location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -360,7 +360,7 @@ def handle_message(event):
         )
     elif mtext == '新冠肺炎專區.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/covid19 location.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/covid19 location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -1133,7 +1133,7 @@ def handle_message(event):
 
     elif mtext == '探病時間/規定':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/coding/visit patient.json')
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/visit patient.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
