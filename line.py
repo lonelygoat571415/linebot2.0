@@ -1040,96 +1040,14 @@ def handle_message(event):
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
     elif mtext == '醫師介紹':
-        try:
-            message = TextSendMessage(
-                text='選擇科別',
-                quick_reply=QuickReply(
-                    items=[
-                        QuickReplyButton(
-                            action=MessageAction(label="內科醫師介紹", text="內科醫師介紹")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="外科醫師介紹", text="外科醫師介紹")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(
-                                label="獨立部門醫師介紹", text="獨立部門醫師介紹")
-                        ),
-                    ]
-                )
-            )
-            linebot_api.reply_message(event.reply_token, message)
-
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
-    elif mtext == '內科醫師介紹':
-
-        try:
-            message = TemplateSendMessage(
-                alt_text='醫師介紹',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='內科醫師介紹',
-                    text='點選以下連結前往內科醫師介紹',
-                    actions=[
-                        URITemplateAction(
-                            label='內科醫師介紹',
-                            uri='https://webdept.fjuh.fju.edu.tw/FjuhDep/im/doctors/'
-                        ),
-                    ]
-                ),
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
-    elif mtext == '外科醫師介紹':
-        try:
-            message = TemplateSendMessage(
-                alt_text='醫師介紹',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='外科醫師介紹',
-                    text='點選以下連結前往外科醫師介紹',
-                    actions=[
-                        URITemplateAction(
-                            label='外科醫師介紹',
-                            uri='https://d02536.wixsite.com/mysite/blank-14'
-                        ),
-                    ]
-                )
-
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
-
-    elif mtext == '獨立部門醫師介紹':
-        try:
-            message = TemplateSendMessage(
-                alt_text='醫師介紹',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://i.imgur.com/9Axmlhw.jpg',
-                    title='獨立部門醫師介紹',
-                    text='點選以下連結前往獨立部門醫師介紹',
-                    actions=[
-                        URITemplateAction(
-                            label='獨立部門醫師介紹',
-                            uri='https://www.hospital.fju.edu.tw/Team/ShowTeamItem?SelectGroup=%E7%8D%A8%E7%AB%8B%E9%83%A8%E7%A7%91&SelectID=DERM#txtSectionName'
-                        ),
-
-                    ]
-                )
-
-            )
-            linebot_api.reply_message(event.reply_token, message)
-        except:
-            linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
+        file_path = os.path.join(os.path.abspath(
+            '.'), '/a專題/下學期/FlyIO/linebot2.0/doctors.json')
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            data = json.load(f)
+        linebot_api.reply_message(
+            event.reply_token,
+            FlexSendMessage(alt_text='醫師介紹', contents=data)
+        )
 
     elif mtext == '探病時間/規定':
         file_path = os.path.join(os.path.abspath(
