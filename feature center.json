@@ -49,7 +49,7 @@
               "action": {
                 "type": "uri",
                 "label": "智慧科學體重管理中心",
-                "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=PEDO#cond&gsc.tab=0"
+                "uri": "https://www.hospital.fju.edu.tw/OPDSchedule?SelectID=AMC%20#cond"
               }
             },
             {
