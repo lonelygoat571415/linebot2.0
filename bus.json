@@ -1,0 +1,281 @@
+{
+  "type": "bubble",
+  "size": "mega",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "接駁車路線",
+            "color": "#ffffff",
+            "size": "xl",
+            "flex": 4,
+            "weight": "bold"
+          }
+        ]
+      }
+    ],
+    "paddingAll": "20px",
+    "backgroundColor": "#0367D3",
+    "spacing": "md",
+    "height": "73px",
+    "paddingTop": "22px"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "請點選您要搭的接駁車路線",
+        "color": "#616161",
+        "size": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "height": "12px",
+                "width": "12px",
+                "borderColor": "#00de46",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "北新莊線",
+            "gravity": "center",
+            "flex": 4,
+            "size": "md",
+            "action": {
+              "type": "message",
+              "label": "北新莊線",
+              "text": "北新莊線"
+            }
+          }
+        ],
+        "spacing": "lg",
+        "cornerRadius": "30px",
+        "margin": "xl",
+        "height": "41px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 1
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "2px",
+                    "backgroundColor": "#6486E3"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "flex": 1
+              }
+            ],
+            "width": "12px"
+          },
+          {
+            "type": "text",
+            "gravity": "center",
+            "flex": 4,
+            "size": "xs",
+            "text": ".",
+            "color": "#f7faf8"
+          }
+        ],
+        "spacing": "lg",
+        "height": "64px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "height": "12px",
+                "width": "12px",
+                "borderColor": "#EF454D",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "輔大醫院線",
+            "gravity": "center",
+            "flex": 4,
+            "size": "md",
+            "action": {
+              "type": "message",
+              "label": "action",
+              "text": "輔大醫院線"
+            }
+          }
+        ],
+        "spacing": "lg",
+        "cornerRadius": "30px",
+        "margin": "xs",
+        "height": "41px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 1
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [],
+                    "width": "2px",
+                    "backgroundColor": "#6486E3"
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "flex": 1
+              }
+            ],
+            "width": "12px"
+          },
+          {
+            "type": "text",
+            "text": ".",
+            "gravity": "center",
+            "flex": 4,
+            "size": "xs",
+            "color": "#f7faf8"
+          }
+        ],
+        "spacing": "lg",
+        "height": "64px"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "cornerRadius": "30px",
+                "width": "12px",
+                "height": "12px",
+                "borderColor": "#6486E3",
+                "borderWidth": "2px"
+              },
+              {
+                "type": "filler"
+              }
+            ],
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "板橋線",
+            "gravity": "center",
+            "flex": 4,
+            "size": "md",
+            "action": {
+              "type": "message",
+              "label": "板橋線",
+              "text": "板橋線"
+            }
+          }
+        ],
+        "spacing": "lg",
+        "cornerRadius": "30px",
+        "height": "41px"
+      }
+    ]
+  }
+}
