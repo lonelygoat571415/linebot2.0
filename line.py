@@ -1230,7 +1230,7 @@ def handle_message(event):
     elif mtext == '接駁車班次':
         try:
             file_path = os.path.join(os.path.abspath(
-                '.'), 'D:/a專題/測試/bus.json')
+                '.'), 'bus.json')
             with open(file_path, 'r', encoding='UTF-8') as f:
                 data = json.load(f)
             linebot_api.reply_message(event.reply_token, FlexSendMessage(alt_text='接駁車班次', contents=data)
