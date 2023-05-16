@@ -4,6 +4,10 @@ from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
+import datetime
+import pytz
+import datetime
+
 linebot_api = LineBotApi(
     'T7SxI84IeUrDczb3GqWNiJ6uR9BYNqcYKDN4lXvysix1KKcGrvDj9WbzyE4dW8G6/oDPGkwlt81sX+eoMjGZFprmsr+Fc023Y5UvMa/MA5LJSuyhLK3doXLLqGda8PVFQNuerl9p6dMrRWaPOo9EmAdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('8934b15b8ceb5ce6236d72238f226ebf')
@@ -20,6 +24,36 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+
+
+# 時間設置
+start_date = datetime.date(2023, 5, 15)  # 起始日期
+end_date = datetime.date(2023, 6, 10)  # 結束日期
+
+time_array = []
+
+current_date = start_date
+while current_date <= end_date:
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(7, 30)))  # 每天的固定時間
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(8, 15)))
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(9,  0)))
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(10, 30)))
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(11, 15)))
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(13, 00)))
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(13, 45)))
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(14, 30)))
+    time_array.append(datetime.datetime.combine(
+        current_date, datetime.time(15, 15)))
+
+    current_date += datetime.timedelta(days=1)  # 日期递增一天
 
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -177,7 +211,7 @@ def handle_message(event):
                 event.reply_token, TextSendMessage(text='發生錯誤'))
     elif mtext == '內科':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/medical department.json')
+            '.'), 'medical department.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -186,7 +220,7 @@ def handle_message(event):
         )
     elif mtext == '外科':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/surgical department.json')
+            '.'), 'surgical department.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -196,7 +230,7 @@ def handle_message(event):
 
     elif mtext == '其他專科':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/professional subjects.json')
+            '.'), 'professional subjects.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -206,7 +240,7 @@ def handle_message(event):
 
     elif mtext == '特色中心':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/feature center.json')
+            '.'), 'feature center.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -216,7 +250,7 @@ def handle_message(event):
 
     elif mtext == '新冠肺炎專區':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/covid19.json')
+            '.'), 'covid19.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -321,7 +355,7 @@ def handle_message(event):
 
     elif mtext == '內科.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/internal medicine location.json')
+            '.'), 'internal medicine location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -331,7 +365,7 @@ def handle_message(event):
 
     elif mtext == '外科.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/surgical department location.json')
+            '.'), 'surgical department location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -341,7 +375,7 @@ def handle_message(event):
 
     elif mtext == '其他專科.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/professional subjects location.json')
+            '.'), 'professional subjects location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -351,7 +385,7 @@ def handle_message(event):
 
     elif mtext == '特色中心.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/feature center location.json')
+            '.'), 'feature center location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -360,7 +394,7 @@ def handle_message(event):
         )
     elif mtext == '新冠肺炎專區.':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/covid19 location.json')
+            '.'), 'covid19 location.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -796,7 +830,7 @@ def handle_message(event):
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
-                event.reply_token, TextSendMessage(text='發生錯誤'))
+                evepreview_image_urlnt.reply_token, TextSendMessage(text='發生錯誤'))
 
     elif mtext == '兒童牙科':
         try:
@@ -1041,7 +1075,7 @@ def handle_message(event):
 
     elif mtext == '醫師介紹':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/doctors.json')
+            '.'), 'doctors.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -1051,7 +1085,7 @@ def handle_message(event):
 
     elif mtext == '探病時間/規定':
         file_path = os.path.join(os.path.abspath(
-            '.'), '/a專題/下學期/FlyIO/linebot2.0/visit patient.json')
+            '.'), 'visit patient.json')
         with open(file_path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
         linebot_api.reply_message(
@@ -1195,37 +1229,538 @@ def handle_message(event):
 
     elif mtext == '接駁車班次':
         try:
-            message = TextSendMessage(
-                text='選擇班次路線',
-                quick_reply=QuickReply(
-                    items=[
-                        QuickReplyButton(
-                            action=MessageAction(label="北新莊線", text="北新莊線")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="板橋線", text="板橋線")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="輔大捷運線", text="輔大捷運線")
-                        ),
-
-                    ]
-                )
-            )
-            linebot_api.reply_message(event.reply_token, message)
-
+            file_path = os.path.join(os.path.abspath(
+                '.'), 'D:/a專題/測試/bus.json')
+            with open(file_path, 'r', encoding='UTF-8') as f:
+                data = json.load(f)
+            linebot_api.reply_message(event.reply_token, FlexSendMessage(alt_text='接駁車班次', contents=data)
+                                      )
         except:
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
     elif mtext == '北新莊線':
         try:
-            message = [
-                TextSendMessage(text="下圖是北新莊線時刻表"),
-                ImageSendMessage(
-                    original_content_url="https://i.imgur.com/lhSWFqJ.png",
-                    preview_image_url="https://i.imgur.com/lhSWFqJ.png"
+            file_path = os.path.join(os.path.abspath(
+                '.'), 'green road.json')
+            with open(file_path, 'r', encoding='UTF-8') as f:
+                data = json.load(f)
+            linebot_api.reply_message(event.reply_token, FlexSendMessage(alt_text='北新莊線', contents=data)
+                                      )
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+    elif mtext == '輔大醫院':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:  # 禮拜六
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 30)))  # 7:30
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 15)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  0)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 30)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 15)))  # 11:15
+                elif current_date.weekday() != 6:  # 非禮拜日
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 30)))  # 7:30
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 15)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  0)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 30)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 15)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 00)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 45)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 30)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(15, 15)))  # 15:15
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 現在時間
+            closest_time = None
+            for time in time_array:
+                time = time.replace(tzinfo=pytz.timezone(
+                    'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
+                if time > current_time:
+                    if closest_time is None or time < closest_time:
+                        closest_time = time
+            if current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+            elif closest_time:
+                message = TextSendMessage(
+                    text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
+                        "%H:%M"), closest_time.strftime("%H:%M"))
                 )
-            ]
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '捷運泰山站':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:  # 禮拜六
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 35)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 20)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  5)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 35)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 20)))
+                elif current_date.weekday() != 6:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 35)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 20)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  5)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 35)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 20)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 5)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 50)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 35)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(15, 20)))
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 現在時間
+            closest_time = None
+            for time in time_array:
+                time = time.replace(tzinfo=pytz.timezone(
+                    'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
+                if time > current_time:
+                    if closest_time is None or time < closest_time:
+                        closest_time = time
+            if current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+            elif closest_time:
+                message = TextSendMessage(
+                    text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
+                        "%H:%M"), closest_time.strftime("%H:%M"))
+                )
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '中平國中':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 37)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 22)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  7)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 37)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 22)))
+                elif current_date.weekday() != 6:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 37)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 22)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  7)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 37)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 22)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 7)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 52)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 37)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(15, 22)))
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 現在時間
+            closest_time = None
+            for time in time_array:
+                time = time.replace(tzinfo=pytz.timezone(
+                    'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
+                if time > current_time:
+                    if closest_time is None or time < closest_time:
+                        closest_time = time
+            if current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+            elif closest_time:
+                message = TextSendMessage(
+                    text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
+                        "%H:%M"), closest_time.strftime("%H:%M"))
+                )
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '佳瑪百貨':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 42)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 27)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  12)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 42)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 27)))
+                elif current_date.weekday() != 6:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 42)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 27)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  12)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 42)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 27)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 12)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 57)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 42)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(15, 27)))
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 現在時間
+            closest_time = None
+            for time in time_array:
+                time = time.replace(tzinfo=pytz.timezone(
+                    'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
+                if time > current_time:
+                    if closest_time is None or time < closest_time:
+                        closest_time = time
+            if current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+            elif closest_time:
+                message = TextSendMessage(
+                    text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
+                        "%H:%M"), closest_time.strftime("%H:%M"))
+                )
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '財源廣場':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 47)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 32)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  17)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 47)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 32)))
+                elif current_date.weekday() != 6:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 47)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 32)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  17)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 47)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 32)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 17)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 2)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 47)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(15, 32)))
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 現在時間
+            closest_time = None
+            for time in time_array:
+                time = time.replace(tzinfo=pytz.timezone(
+                    'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
+                if time > current_time:
+                    if closest_time is None or time < closest_time:
+                        closest_time = time
+            if current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+            elif closest_time:
+                message = TextSendMessage(
+                    text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
+                        "%H:%M"), closest_time.strftime("%H:%M"))
+                )
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '地政事務所':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 52)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 37)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  22)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 52)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 37)))
+                elif current_date.weekday() != 6:
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 52)))  # 每天的固定時間
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(8, 37)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(9,  22)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(10, 52)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(11, 37)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(13, 22)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 7)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 52)))
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(15, 37)))
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 現在時間
+            closest_time = None
+            for time in time_array:
+                time = time.replace(tzinfo=pytz.timezone(
+                    'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
+                if time > current_time:
+                    if closest_time is None or time < closest_time:
+                        closest_time = time
+            if current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+            elif closest_time:
+                message = TextSendMessage(
+                    text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
+                        "%H:%M"), closest_time.strftime("%H:%M"))
+                )
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+    elif mtext == '板橋線':
+        try:
+            file_path = os.path.join(os.path.abspath(
+                '.'), 'blue road.json')
+            with open(file_path, 'r', encoding='UTF-8') as f:
+                data = json.load(f)
+            linebot_api.reply_message(event.reply_token, FlexSendMessage(alt_text='板橋線', contents=data)
+                                      )
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+    elif mtext == '輔大醫院站':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:  # 禮拜六
+                    time = datetime.datetime.combine(
+                        current_date, datetime.time(7, 30))  # 7:30
+                    # 11:00之前
+                    while time <= datetime.datetime.combine(current_date, datetime.time(11, 0)):
+                        time_array.append(time)
+                        time += datetime.timedelta(minutes=30)
+                elif current_date.weekday() != 6:  # 非禮拜日
+                    time = datetime.datetime.combine(
+                        current_date, datetime.time(7, 30))  # 7:30
+                    # 17:00之前
+                    while time <= datetime.datetime.combine(current_date, datetime.time(17, 0)):
+                        # 排除11:00到13:00之间的时间
+                        if not (time.time() >= datetime.time(11, 0) and time.time() <= datetime.time(13, 0)):
+                            time_array.append(time)
+                        time += datetime.timedelta(minutes=30)
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 現在時間
+            closest_time = None
+            for time in time_array:
+                time = time.replace(tzinfo=pytz.timezone(
+                    'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
+                if time >= current_time:
+                    if closest_time is None or time < closest_time:
+                        closest_time = time
+
+            if closest_time:
+                message = TextSendMessage(
+                    text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
+                        "%H:%M"), closest_time.strftime("%H:%M"))
+                )
+            else:
+                message = TextSendMessage(
+                    text="今天的末班車已過"
+                )
+
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '捷運板橋站(3號出口)':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:  # 禮拜六
+                    time = datetime.datetime.combine(
+                        current_date, datetime.time(7, 55))
+                    while time <= datetime.datetime.combine(current_date, datetime.time(11, 25)):
+                        time_array.append(time)
+                        time += datetime.timedelta(minutes=30)
+                elif current_date.weekday() != 6:  # 非禮拜日
+                    time = datetime.datetime.combine(
+                        current_date, datetime.time(7, 55))  # 7:30
+                    # 17:00之前
+                    while time <= datetime.datetime.combine(current_date, datetime.time(17, 25)):
+                        if not (time.time() >= datetime.time(11, 25) and time.time() <= datetime.time(13, 25)):
+                            time_array.append(time)
+                        time += datetime.timedelta(minutes=30)
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 現在時間
+            closest_time = None
+            for time in time_array:
+                time = time.replace(tzinfo=pytz.timezone(
+                    'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
+                if time >= current_time:
+                    if closest_time is None or time < closest_time:
+                        closest_time = time
+
+            if closest_time:
+                message = TextSendMessage(
+                    text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
+                        "%H:%M"), closest_time.strftime("%H:%M"))
+                )
+            else:
+                message = TextSendMessage(
+                    text="今天的末班車已過"
+                )
+
+            linebot_api.reply_message(event.reply_token, message)
+        except:
+            linebot_api.reply_message(
+                event.reply_token, TextSendMessage(text='發生錯誤'))
+
+    elif mtext == '輔大捷運線':
+        try:
+            time_array = []
+            current_date = start_date
+            while current_date <= end_date:
+                if current_date.weekday() == 5:  # 禮拜六
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 30)))  # 7:30
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(12, 0)))  # 12:00
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 0)))  # 14:00
+                elif current_date.weekday() != 6:  # 非禮拜日
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(7, 30)))  # 7:30
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(12, 0)))  # 12:00
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(14, 0)))  # 14:00
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(18, 0)))  # 18:00
+                    time_array.append(datetime.datetime.combine(
+                        current_date, datetime.time(20, 0)))  # 20:00
+
+                current_date += datetime.timedelta(days=1)  # 日期递增一天
+
+            current_time = datetime.datetime.now(
+                pytz.timezone('Asia/Taipei'))  # 现在时间
+            time_ranges = {
+                (datetime.time(7, 30), datetime.time(12, 0)): "約8分鐘一班",  # 7:30~12:00
+                (datetime.time(12, 0), datetime.time(14, 0)): "約15分鐘一班",  # 12:00~14:00
+                (datetime.time(14, 0), datetime.time(18, 0)): "約8分鐘一班",  # 14:00~18:00
+                (datetime.time(18, 0), datetime.time(20, 0)): "約10分鐘一班",  # 18:00~20:00
+                (datetime.time(20, 0), datetime.time(22, 5)): "約15分鐘一班"  # 20:00~22:05
+            }
+
+            closest_time_range = None
+            for start_time, end_time in time_ranges.keys():
+                if start_time <= current_time.time() < end_time:
+                    closest_time_range = time_ranges[(start_time, end_time)]
+                    break
+
+            if closest_time_range:
+                message = TextSendMessage(
+                    text="現在時間：%s\n來車頻率：%s" % (
+                        current_time.strftime("%H:%M"), closest_time_range)
+                )
+            else:
+                message = TextSendMessage(
+                    text="今天的末班車已過"
+                )
+
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
