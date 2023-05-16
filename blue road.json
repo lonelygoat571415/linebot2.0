@@ -10,7 +10,7 @@
           "contents": [
             {
               "type": "text",
-              "text": "北新莊線",
+              "text": "板橋線",
               "wrap": true,
               "weight": "bold",
               "size": "xl"
@@ -42,47 +42,15 @@
               "action": {
                 "type": "message",
                 "label": "輔大醫院",
-                "text": "輔大醫院"
+                "text": "輔大醫院站"
               }
             },
             {
               "type": "button",
               "action": {
                 "type": "message",
-                "label": "捷運泰山站",
-                "text": "捷運泰山站"
-              }
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "中平國中",
-                "text": "中平國中"
-              }
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "佳瑪百貨",
-                "text": "佳瑪百貨"
-              }
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "財源廣場",
-                "text": "財源廣場"
-              }
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "地政事務所",
-                "text": "地政事務所"
+                "label": "捷運板橋站(3號出口)",
+                "text": "捷運板橋站(3號出口)"
               }
             }
           ]
