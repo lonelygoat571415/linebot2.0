@@ -1252,7 +1252,8 @@ def handle_message(event):
     elif mtext == '輔大醫院':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:  # 禮拜六
                     time_array.append(datetime.datetime.combine(
@@ -1295,14 +1296,15 @@ def handle_message(event):
                 if time > current_time:
                     if closest_time is None or time < closest_time:
                         closest_time = time
-            if current_time.time() > max(time_array).time():
-                message = TextSendMessage(
-                    text="今天的末班車已過")
-            elif closest_time:
+            if closest_time:
                 message = TextSendMessage(
                     text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
                         "%H:%M"), closest_time.strftime("%H:%M"))
                 )
+            elif current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -1311,7 +1313,8 @@ def handle_message(event):
     elif mtext == '捷運泰山站':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:  # 禮拜六
                     time_array.append(datetime.datetime.combine(
@@ -1351,17 +1354,18 @@ def handle_message(event):
             for time in time_array:
                 time = time.replace(tzinfo=pytz.timezone(
                     'Asia/Taipei'))  # 將時間物件轉換為具有相同時區資訊的物件
-                if time > current_time:
+                if time >= current_time:
                     if closest_time is None or time < closest_time:
                         closest_time = time
-            if current_time.time() > max(time_array).time():
-                message = TextSendMessage(
-                    text="今天的末班車已過")
-            elif closest_time:
+            if closest_time:
                 message = TextSendMessage(
                     text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
                         "%H:%M"), closest_time.strftime("%H:%M"))
                 )
+            elif current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -1370,7 +1374,8 @@ def handle_message(event):
     elif mtext == '中平國中':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:
                     time_array.append(datetime.datetime.combine(
@@ -1413,14 +1418,15 @@ def handle_message(event):
                 if time > current_time:
                     if closest_time is None or time < closest_time:
                         closest_time = time
-            if current_time.time() > max(time_array).time():
-                message = TextSendMessage(
-                    text="今天的末班車已過")
-            elif closest_time:
+            if closest_time:
                 message = TextSendMessage(
                     text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
                         "%H:%M"), closest_time.strftime("%H:%M"))
                 )
+            elif current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -1429,7 +1435,8 @@ def handle_message(event):
     elif mtext == '佳瑪百貨':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:
                     time_array.append(datetime.datetime.combine(
@@ -1472,14 +1479,15 @@ def handle_message(event):
                 if time > current_time:
                     if closest_time is None or time < closest_time:
                         closest_time = time
-            if current_time.time() > max(time_array).time():
-                message = TextSendMessage(
-                    text="今天的末班車已過")
-            elif closest_time:
+            if closest_time:
                 message = TextSendMessage(
                     text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
                         "%H:%M"), closest_time.strftime("%H:%M"))
                 )
+            elif current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -1488,7 +1496,8 @@ def handle_message(event):
     elif mtext == '財源廣場':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:
                     time_array.append(datetime.datetime.combine(
@@ -1531,14 +1540,15 @@ def handle_message(event):
                 if time > current_time:
                     if closest_time is None or time < closest_time:
                         closest_time = time
-            if current_time.time() > max(time_array).time():
-                message = TextSendMessage(
-                    text="今天的末班車已過")
-            elif closest_time:
+            if closest_time:
                 message = TextSendMessage(
                     text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
                         "%H:%M"), closest_time.strftime("%H:%M"))
                 )
+            elif current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -1547,7 +1557,8 @@ def handle_message(event):
     elif mtext == '地政事務所':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:
                     time_array.append(datetime.datetime.combine(
@@ -1590,14 +1601,15 @@ def handle_message(event):
                 if time > current_time:
                     if closest_time is None or time < closest_time:
                         closest_time = time
-            if current_time.time() > max(time_array).time():
-                message = TextSendMessage(
-                    text="今天的末班車已過")
-            elif closest_time:
+            if closest_time:
                 message = TextSendMessage(
                     text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
                         "%H:%M"), closest_time.strftime("%H:%M"))
                 )
+            elif current_time.time() > max(time_array).time():
+                message = TextSendMessage(
+                    text="今天的末班車已過")
+
             linebot_api.reply_message(event.reply_token, message)
         except:
             linebot_api.reply_message(
@@ -1616,7 +1628,8 @@ def handle_message(event):
     elif mtext == '輔大醫院站':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:  # 禮拜六
                     time = datetime.datetime.combine(
@@ -1646,13 +1659,13 @@ def handle_message(event):
                 if time >= current_time:
                     if closest_time is None or time < closest_time:
                         closest_time = time
-
+                        break
             if closest_time:
                 message = TextSendMessage(
                     text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
                         "%H:%M"), closest_time.strftime("%H:%M"))
                 )
-            else:
+            elif current_time.time() > max(time_array).time():
                 message = TextSendMessage(
                     text="今天的末班車已過"
                 )
@@ -1665,7 +1678,8 @@ def handle_message(event):
     elif mtext == '捷運板橋站(3號出口)':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:  # 禮拜六
                     time = datetime.datetime.combine(
@@ -1699,7 +1713,7 @@ def handle_message(event):
                     text="現在時間：%s\n最接近的班次：%s" % (current_time.strftime(
                         "%H:%M"), closest_time.strftime("%H:%M"))
                 )
-            else:
+            elif current_time.time() > max(time_array).time():
                 message = TextSendMessage(
                     text="今天的末班車已過"
                 )
@@ -1712,7 +1726,8 @@ def handle_message(event):
     elif mtext == '輔大捷運線':
         try:
             time_array = []
-            current_date = start_date
+            current_date = datetime.date.today()
+            end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:  # 禮拜六
                     time_array.append(datetime.datetime.combine(
@@ -1756,7 +1771,7 @@ def handle_message(event):
                     text="現在時間：%s\n來車頻率：%s" % (
                         current_time.strftime("%H:%M"), closest_time_range)
                 )
-            else:
+            elif current_time.time() > max(time_array).time():
                 message = TextSendMessage(
                     text="今天的末班車已過"
                 )
