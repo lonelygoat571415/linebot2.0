@@ -27,7 +27,7 @@ def callback():
 
 
 # 時間設置
-start_date = datetime.date(2023, 5, 15)  # 起始日期
+start_date = datetime.date(2023, 5, 22)  # 起始日期
 end_date = datetime.date(2023, 6, 10)  # 結束日期
 
 time_array = []
@@ -1726,7 +1726,7 @@ def handle_message(event):
     elif mtext == '輔大捷運線':
         try:
             time_array = []
-            current_date = datetime.date.today()
+            current_date = start_date
             end_date = datetime.date.today() + datetime.timedelta(days=1)
             while current_date <= end_date:
                 if current_date.weekday() == 5:  # 禮拜六
@@ -1748,10 +1748,10 @@ def handle_message(event):
                     time_array.append(datetime.datetime.combine(
                         current_date, datetime.time(20, 0)))  # 20:00
 
-                current_date += datetime.timedelta(days=1)  # 日期递增一天
+                current_date += datetime.timedelta(days=1)
 
             current_time = datetime.datetime.now(
-                pytz.timezone('Asia/Taipei'))  # 现在时间
+                pytz.timezone('Asia/Taipei'))
             time_ranges = {
                 (datetime.time(7, 30), datetime.time(12, 0)): "約8分鐘一班",  # 7:30~12:00
                 (datetime.time(12, 0), datetime.time(14, 0)): "約15分鐘一班",  # 12:00~14:00
@@ -1764,20 +1764,20 @@ def handle_message(event):
             for start_time, end_time in time_ranges.keys():
                 if start_time <= current_time.time() < end_time:
                     closest_time_range = time_ranges[(start_time, end_time)]
-                    break
 
             if closest_time_range:
                 message = TextSendMessage(
-                    text="現在時間：%s\n來車頻率：%s" % (
+                    text="現在時間：%s\n目前的來車頻率：%s" % (
                         current_time.strftime("%H:%M"), closest_time_range)
                 )
-            elif current_time.time() > max(time_array).time():
+            else:
                 message = TextSendMessage(
-                    text="今天的末班車已過"
+                    text="目前無班次"
                 )
 
             linebot_api.reply_message(event.reply_token, message)
-        except:
+        except Exception as e:
+            print("發生錯誤：", str(e))
             linebot_api.reply_message(
                 event.reply_token, TextSendMessage(text='發生錯誤'))
 
